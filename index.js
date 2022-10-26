@@ -85,14 +85,14 @@ function editTask(e) {
 
 }
 // Chnage Text
-function changeText(e, check) {
+function changeText(e, checkboxEle) {
     let element = e.target;
     if (element.value != "") {
         let listItem = element.parentElement;
         let span = document.createElement("span");
         span.textContent = element.value;
         listItem.replaceChild(span, element);
-        if(check.checked==true){
+        if(checkboxEle.checked==true){
             span.style.textDecoration = "line-through";
         }
         else{
