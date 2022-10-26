@@ -1,9 +1,9 @@
 // Getting inputs
-const taskName = document.getElementById("input-field");
+const taskName = document.getElementById("taskName-input");
 const listContainer = document.getElementById("todo-list");
 // calling addItem function if Enter is pressed
 taskName.addEventListener("keypress", (e) => {
-    if (e.target.value!="" && e.key === "Enter") {
+    if (e.target.value != "" && e.key === "Enter") {
         addItem();
     }
 }
@@ -54,8 +54,7 @@ function addItem() {
 // Delete Task from the list
 function deleteTask(e) {
     var element = e.target;
-    console.log(element.parentElement)
-    element.parentElement.remove(e);
+    element.parentElement.remove();
 }
 
 // Edit Tasks
@@ -63,13 +62,10 @@ function editTask(e) {
     let element = e.target.parentElement;
 
     let deleteEle = e.target.previousElementSibling;
-    console.log(deleteEle);
 
     let prevSpanEle = deleteEle.previousElementSibling;
-    console.log(prevSpanEle);
 
     let checkboxEle = prevSpanEle.previousElementSibling;
-    console.log(checkboxEle);
 
     // create input field for new text
     let newSpanEle = document.createElement("input");
@@ -92,13 +88,13 @@ function changeText(e, checkboxEle) {
         let span = document.createElement("span");
         span.textContent = element.value;
         listItem.replaceChild(span, element);
-        if(checkboxEle.checked==true){
+        if (checkboxEle.checked == true) {
             span.style.textDecoration = "line-through";
         }
-        else{
-            span.style.textDecoration = none;
+        else {
+            span.style.textDecoration="none";
         }
-        
+
     }
 }
 
